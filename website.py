@@ -7,7 +7,8 @@ import urllib.request, json
 app=Flask(__name__) #Creation of flask app
 @app.route('/')
 def index():
-    return render_template("home.html") #returns homepage
+    #return render_template("home.html") #returns homepage
+    return render_template("index.html") #returns homepage
 
 @app.route("/Twitter.html",methods=["GET"]) #Fetches the twitter page
 

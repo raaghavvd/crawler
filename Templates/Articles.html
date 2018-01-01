@@ -8,15 +8,16 @@
       <script src="static/Script.js"></script>
 
       <table style ="border:solid 1px black">
-        {% for item in items %}{% for url_ in urls%}
+        {% for item in items %}
+
           <TR>
-             <TD><a href={{url_}}>{{item}}</a></TD>
+             <TD>{{item}}</TD>
+             <TD><a href="{{urls[loop.index-1]}}">View Article {{loop.index}}</a></TD>
 
 
-          <TD> </TD>
 
           </TR>
-        {% endfor %}{% endfor %}
+        {% endfor %}
 
 
       </table>
