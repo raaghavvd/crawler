@@ -5,16 +5,19 @@
 
   </head>
     <body>
+      <script src="static/Script.js"></script>
+
       <table style ="border:solid 1px black">
-        {% for item in items %}
+        {% for item in items %}{% for url_ in urls%}
           <TR>
-             <TD><a href="javascript:void(0)">{{item}}</a></TD>
+             <TD><a href={{url_}}>{{item}}</a></TD>
 
 
           <TD> </TD>
 
           </TR>
-        {% endfor %}
+        {% endfor %}{% endfor %}
+
 
       </table>
 

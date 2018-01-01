@@ -56,7 +56,7 @@ def Articles():
         number_of_articles=[0,10,20]
         for number,page_val in zip(number_of_articles,pages):
             append_links(number,page_val)
-        return render_template("Articles.html",items= headline_set) #returns the headlines to Articles page
+        return render_template("Articles.html",items= headline_set, urls=url_set) #returns the headlines to Articles page
 
 
 
