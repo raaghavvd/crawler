@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 '''
-This program is a webcrawler to fetch 20 tweets from Donald Trump's twitter account 
+This program is a webcrawler to fetch 20 tweets from Donald Trump's twitter account
 
 '''
 
@@ -10,6 +10,9 @@ r= requests.get(url) #fetch the data
 data=r.text #generates and stores the text from the data
 soup=BeautifulSoup(data,'html.parser') #BeautifulSoup parses
 tweets=[p.text for p in soup.findAll('p',class_='tweet-text')]  #gets all the tweets
+
+
+
 i=0
 for tweet in tweets:  #prints each tweet from the list
     i=i+1

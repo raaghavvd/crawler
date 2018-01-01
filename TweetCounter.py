@@ -12,9 +12,11 @@ count = 0
 r = api.request('statuses/filter', {'track':'Donald Trump'})
 
 #The following loop generates the latest 20 tweets containing 'Donald Trump'
-
 for item in r:
-     print(item['text'])
+     print(item)
+     #print(item['text'])
+     print('\n')
+     print(item['entities']['expanded_url'])
      count=count+1
      if count > 19:
          break

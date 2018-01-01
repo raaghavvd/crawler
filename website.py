@@ -2,6 +2,8 @@ from flask import Flask, render_template,request
 from bs4 import BeautifulSoup
 import requests
 import urllib.request, json
+from TwitterAPI import TwitterAPI
+
 
 
 app=Flask(__name__) #Creation of flask app
@@ -59,6 +61,28 @@ def Articles():
             append_links(number,page_val)
         return render_template("Articles.html",items= headline_set, urls=url_set) #returns the headlines to Articles page
 
+
+@app.route("/Tweets.html",methods=["GET"])
+def Tweets():
+    tweet_list=[]
+    API_KEY = 'cQqTiW9m7TuX9JYwCJVjpnhLQ'
+    API_SECRET = 'oElX55rEZoDWa9hflU0SRk6JlbzlBtIJLlIE96dBoPunzrG4XV'
+    ACCESS_TOKEN = '35775665-RtraC7pm3bD0EUtdej0YYw03o0DETpwkN7kyZQ7pL'
+    ACCESS_TOKEN_SECRET= 'o1NtrzIoj0QaOdN9xTVyaKsboANjJqOpOFcgjHTLmYkWh'
+
+    #Making the Connection with the API
+    api = TwitterAPI(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+    count = 0
+    r = api.request('statuses/filter', {'track':'Donald Trump'})
+
+    #The following loop generates the latest 20 tweets containing 'Donald Trump'
+
+    for item in r:
+         tweet_list.append(item['text'])
+         count=count+1
+         if count > 19:
+             break
+    return render_template("Tweets.html", items= tweet_list)  #Returns the list of the latest tweets to the website
 
 
 
