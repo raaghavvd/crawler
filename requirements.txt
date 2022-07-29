@@ -34,7 +34,7 @@ lxml==3.7.3
 mapsplotlib==1.0.5
 MarkupSafe==1.0
 matplotlib==2.0.2
-mistune==0.7.4
+mistune==2.0.3
 mpmath==0.19
 msgpack-python==0.4.8
 multidict==3.3.2
